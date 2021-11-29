@@ -47,12 +47,12 @@ export class PollService {
   }
 
   selectEvent(choiceid: number): Observable<void> {
-    return this.http.post<void>('http://52.47.158.232:8080/api/poll/selectedchoice/' + choiceid, null);
+    return this.http.post<void>(`${this.baseUrl}` + '/api/poll/selectedchoice/' + choiceid, null);
 
   }
 
   getICS(slug: string, ics: string): Observable<EventDTOAndSelectedChoice> {
-    return this.http.get<EventDTOAndSelectedChoice>('http://52.47.158.232:8080/api/ics/polls/' + slug + '/' + btoa(ics));
+    return this.http.get<EventDTOAndSelectedChoice>(`${this.baseUrl}` + '/api/ics/polls/' + slug + '/' + btoa(ics));
   }
 
 
